@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import {
   DataTable,
   TableContainer,
@@ -18,7 +17,7 @@ import {
   SortStates,
 } from 'carbon-components-react';
 
-const ContainerMgmtTable = ({ rows, headers }) => {
+const InfrustructureEngineerTable = ({ rows, headers }) => {
   return (
     <DataTable isSortable rows={rows} headers={headers}>
       {({
@@ -29,25 +28,11 @@ const ContainerMgmtTable = ({ rows, headers }) => {
         getTableProps,
         onInputChange,
       }) => (
-        <TableContainer
-          title="Container and Container Management Engineer"
-          description="Job description">
+        <TableContainer title="Container and Container Management Engineer">
           <TableToolbar>
             <TableToolbarContent>
               {/* pass in `onInputChange` change here to make filtering work */}
               <TableToolbarSearch onChange={onInputChange} />
-              <TableToolbarMenu>
-                {/* <TableToolbarAction onClick={action('Level')} primaryFocus>
-                  Action 1
-                </TableToolbarAction>
-                <TableToolbarAction onClick={action('Action 2 Click')}>
-                  Action 2
-                </TableToolbarAction>
-                <TableToolbarAction onClick={action('Action 3 Click')}>
-                  Action 3
-                </TableToolbarAction> */}
-              </TableToolbarMenu>
-              <Button onClick={action('Button click')}>Primary Button</Button>
             </TableToolbarContent>
           </TableToolbar>
           <Table {...getTableProps()}>
@@ -77,4 +62,4 @@ const ContainerMgmtTable = ({ rows, headers }) => {
   );
 };
 
-export default ContainerMgmtTable;
+export default InfrustructureEngineerTable;

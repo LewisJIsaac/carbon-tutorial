@@ -8,6 +8,7 @@ import LandingPage from './content/LandingPage';
 import RepoPage from './content/Architect';
 import AutomationPage from './content/AutomationEngineer';
 import ContainerMgmtPage from './content/ContainerMgmt';
+import InfrustructureEngineerPage from './content/InfrustructureEngineer';
 
 class App extends Component {
   render() {
@@ -20,6 +21,10 @@ class App extends Component {
             <Route path="/achitect" component={RepoPage} />
             <Route path="/automationengineer" component={AutomationPage} />
             <Route path="/containermgmt" component={ContainerMgmtPage} />
+            <Route
+              path="/networkinginfrastucture"
+              component={InfrustructureEngineerPage}
+            />
           </Switch>
           {/* <Button>Button</Button> */}
         </Content>

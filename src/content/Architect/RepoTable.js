@@ -5,59 +5,60 @@ import {
   Table,
   TableHead,
   TableRow,
-  TableExpandHeader,
   TableHeader,
   TableBody,
-  TableExpandRow,
   TableCell,
-  TableExpandedRow,
+  TableToolbar,
+  TableToolbarAction,
+  TableToolbarContent,
+  TableToolbarSearch,
+  TableToolbarMenu,
+  Button,
+  SortStates,
 } from 'carbon-components-react';
 
 const RepoTable = ({ rows, headers }) => {
   return (
-    <DataTable
-      isSortable
-      rows={rows}
-      headers={headers}
-      render={({
+    <DataTable isSortable rows={rows} headers={headers}>
+      {({
         rows,
         headers,
         getHeaderProps,
         getRowProps,
         getTableProps,
+        onInputChange,
       }) => (
-        <TableContainer
-          title="DevOps Architect"
-          description="A DevOps Architect role is able to design complete systems or solutions that are favourable for the DevOps culture and this means that they need to have a basic understanding of the technologies and principles of DevOps.">
-          <Table size="" {...getTableProps()}>
+        <TableContainer title="Container and Container Management Engineer">
+          <TableToolbar>
+            <TableToolbarContent>
+              {/* pass in `onInputChange` change here to make filtering work */}
+              <TableToolbarSearch onChange={onInputChange} />
+            </TableToolbarContent>
+          </TableToolbar>
+          <Table {...getTableProps()}>
             <TableHead>
               <TableRow>
-                <TableExpandHeader />
                 {headers.map(header => (
-                  <TableHeader {...getHeaderProps({ header })}>
+                  <TableHeader key={header.key} {...getHeaderProps({ header })}>
                     {header.header}
                   </TableHeader>
                 ))}
               </TableRow>
             </TableHead>
+
             <TableBody>
               {rows.map(row => (
-                <React.Fragment key={row.id}>
-                  <TableExpandRow {...getRowProps({ row })}>
-                    {row.cells.map(cell => (
-                      <TableCell key={cell.id}>{cell.value}</TableCell>
-                    ))}
-                  </TableExpandRow>
-                  <TableExpandedRow colSpan={headers.length + 1}>
-                    <p>Row descriptions</p>
-                  </TableExpandedRow>
-                </React.Fragment>
+                <TableRow key={row.id} {...getRowProps({ row })}>
+                  {row.cells.map(cell => (
+                    <TableCell key={cell.id}>{cell.value}</TableCell>
+                  ))}
+                </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       )}
-    />
+    </DataTable>
   );
 };
 

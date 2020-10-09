@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoTable from './RepoTable';
+import InfrustructureEngineerTable from './InfrustructureEngineerTable';
 
 const headers = [
   {
@@ -93,8 +93,8 @@ const rows = [
   // },
 ];
 
-const RepoPage = () => {
-  return <RepoTable headers={headers} rows={rows} />;
+const InfrustructureEngineerPage = () => {
+  return <InfrustructureEngineerTable headers={headers} rows={rows} />;
 };
 
-export default RepoPage;
+export default InfrustructureEngineerPage;
